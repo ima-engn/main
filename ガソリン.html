@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+	<TITLE>
+	ガソリン
+	</TITLE>
+</HEAD>
+<style>
+h1 { font-size:large }
+h2 { font-size:medium }
+h3 { font-size:small }
+p { font-size:small }
+body {
+	font-size:small;
+	font-family:'Consolas','メイリオ',monospace;
+//	color:blue;
+}
+input {
+	text-align:center;
+	font-family:'Consolas','メイリオ',monospace;
+}
+</style>
+<BODY>
+
+<form name="js">
+
+累積距離　　　　　　<input type="text" value="193572" name="total" size="9"><br>
+今回距離　　　　　　<input type="text" value="384.3"  name="dist"  size="9"><br>
+給油量　　　　　　　<input type="text" value="28.05"  name="gas"   size="9"><br>
+ガソリン代　　　　　<input type="text" value="4123"   name="pay"   size="9"><br>
+ガソリン単価　　　　<input type="text" value="147"    name="price" size="9"><br>
+<br>
+<input type="button" value="GO" onclick="go_box();" size="5"><br> 
+
+<hr>
+
+累積　　　　　　　　<input type="text" value=""    name="a1" size="5">km<br>
+今回　　　　　　　　<input type="text" value=""    name="a2" size="5">km<br>
+給油　　　　　　　　<input type="text" value=""    name="a3" size="5">L<br>
+ガソリン代　　　　　<input type="text" value=""    name="a4" size="5">円<br>
+ガソリン単価　　　　<input type="text" value=""    name="a5" size="5">円<br>
+燃費（１Ｌ）　　　　<input type="text" value=""    name="a6" size="5">km/L<br>
+燃費（１０００円）　<input type="text" value=""    name="a7" size="5">km/1000円<br>
+<br>
+<input type="text" value=""    name="a8" size="110"><br>
+
+</form>
+
+<script type="text/javascript">
+
+function go_box() {
+
+//	var total = 193572;：ｗ
+//	var dist  = 341.3;
+//	var gas   = 28.05;
+//	var pay   = 4123;
+//	var price  = 147.0;
+
+	var total = document.js.total.value;
+	var dist  = document.js.dist.value;
+	var gas   = document.js.gas.value;
+	var pay   = document.js.pay.value;
+	var price = document.js.price.value;
+
+	/*
+	document.write("累積",total,"km<br>");
+	document.write("今回",dist,"km<br>");
+	document.write("給油",gas,"L<br>");
+	document.write("ガソリン代",pay,"円<br>");
+	document.write("ガソリン単価",price,"円<br>");
+	document.write("燃費(1L)",dist/gas,"km<br>");
+	document.write("燃費(1000円)",dist/pay*1000,"km<br>");
+	*/
+
+	document.js.a1.value = total;
+	document.js.a2.value = dist;
+	document.js.a3.value = gas;
+	document.js.a4.value = pay;
+	document.js.a5.value = price;
+	tmp1 = dist / gas ;
+	tmp1 = tmp1.toFixed(2);
+	document.js.a6.value = tmp1;
+	tmp2 = dist / pay * 1000 ;
+	tmp2 = tmp2.toFixed(2);
+	document.js.a7.value = tmp2;
+	tmp = '累積' + total + 'km、';
+	tmp = tmp + '今回' + dist + 'km、';
+	tmp = tmp + '給油' + gas + 'km、';
+	tmp = tmp + 'ガソリン代' + pay + '円@' + price + '、';
+	tmp = tmp + '燃費(gas)' + tmp1 + 'km/L、';
+	tmp = tmp + '燃費(price)' + tmp2 + 'km/1000円';
+	document.js.a8.value = tmp;
+
+}
+
+</script>
+
+</BODY>
+</HTML>
