@@ -6,3 +6,7 @@ JavaScriptを作成予定
 編集マークをcommitすればよさそう。
 
 ガソリン.html
+
+あああ
+
+
